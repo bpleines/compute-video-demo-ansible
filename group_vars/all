@@ -1,7 +1,10 @@
-# group_vars/all
-# --------------------
-#
-# Variables to be set for dynamic hosts.
 ---
-ansible_ssh_user: ansible-user
-ansible_ssh_private_key_file: /home/ansible-user/.ssh/google_compute_engine
+# Google Compute Engine required authentication global variables
+project_id: symmetric-core-210717
+service_account_email: demo-ansible@symmetric-core-210717.iam.gserviceaccount.com
+credentials_file: '/Users/bpleines/AutomationProjects/googleDemo/keys/symmetric-core-210717-d994965099e4.json'
+
+# Variables to be set for dynamic hosts
+ansible_ssh_user: bpleines
+ansible_ssh_private_key_file: ~/.ssh/google_compute_engine
+...

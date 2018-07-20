@@ -1,0 +1,20 @@
+---
+#machines
+# Common Compute Engine instance variables
+machine_type: n1-standard-1
+image: debian-7
+
+#zonea
+# Variables defined for us-central1-a
+names_zonea: myinstance1,myinstance3
+zonea: us-central1-a
+
+#zoneb
+# Variables defined for us-central1-b
+names_zoneb: myinstance2,myinstance4
+zoneb: us-central1-b
+
+#load-balancer
+region: us-central1
+members: us-central1-a/myinstance1,us-central1-a/myinstance3,us-central1-b/myinstance2,us-central1-b/myinstance4
+...

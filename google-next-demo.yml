@@ -1,0 +1,30 @@
+---
+# compute-video-demo-ansible
+- name: Create Compute Engine instances
+  hosts: local
+  gather_facts: False
+
+  roles:
+    - { role: create-instances }
+  
+- name: Play 2 - Deploy Apache and custom html page
+  hosts: gce_instances_ips
+  become: yes 
+  become_method: sudo
+  
+  roles:
+    - { role: simple-web }
+
+- name: Play 3 - Set up networking
+  hosts: local
+  gather_facts: False
+
+  roles:
+    - { role: configure-networking }
+
+  post_tasks:
+    #Make Chrome your default browser :)
+    - name: Browse to the returned external_ip in Google Chrome
+      command: open 'http://{{ loadbalancer_config.external_ip }}'
+      ignore_errors: true
+...
