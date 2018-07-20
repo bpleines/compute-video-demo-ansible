@@ -35,8 +35,13 @@
     state: absent
 
 - name: Make sure the persistent disks are destroyed
-  gce_pd: name={{ item.name }} zone={{ item.zone }} state=absent
-	  project_id={{ project_id }} credentials_file={{ credentials_file }} service_account_email={{ service_account_email }}
+  gce_pd:
+    name: "{{ item.name }}"
+    zone: "{{ item.zone }}"
+    state: absent
+    project_id: "{{ project_id }}"
+    credentials_file: "{{ credentials_file }}"
+    service_account_email: "{{ service_account_email }}"
   with_items:
     - { name: "myinstance1", zone: "us-central1-a" }
     - { name: "myinstance3", zone: "us-central1-a" }
