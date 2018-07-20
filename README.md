@@ -9,7 +9,7 @@ Relevant Google Compute variables are now limited the scope of a role that requi
 # Google Compute Engine required authentication global variables
 project_id: <project_id>
 service_account_email: demo-ansible@<project_id>.iam.gserviceaccount.com
-credentials_file: '<path_to_credentials>n'
+credentials_file: '<path_to_credentials>'
 
 # Variables to be set for dynamic hosts
 ansible_ssh_user: <ansible_control_user>
@@ -18,14 +18,19 @@ ansible_ssh_private_key_file: ~/.ssh/google_compute_engine
 
 Environment Variables
 --------------
-Previously the following environment variables were exported
+Previously the following environment variables needed to be exported
 ```
 export ANSIBLE_HOSTS=ansible_hosts
 export ANSIBLE_HOST_KEY_CHECKING=False
 ```
 
-These are now taken care by setting the appropriate values in ansible.cfg
-
+These are now taken care by setting their appropriate equivalents in ansible.cfg
+```
+[defaults]
+inventory=hosts
+host_key_checking=False
+retry_files_enabled=False
+```
 
 Demo Time
 --------------
@@ -34,7 +39,7 @@ The following playbook kicks off the demo:
 ansible-playbook google-next-demo.yml
 ```
 
-This playbook cleans it up:
+And this  playbook cleans it up:
 ```
 ansible-playbook cleanup.yml
 ```
