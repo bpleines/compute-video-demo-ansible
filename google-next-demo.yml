@@ -25,7 +25,7 @@
   post_tasks:
     - name: Quick pause before opening the browser
       pause:
-        seconds: 7
+        seconds: 10
     
     #Make Chrome your default browser :)
     - name: Browse to the returned external_ip in Google Chrome
