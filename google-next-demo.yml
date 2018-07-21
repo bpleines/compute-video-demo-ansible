@@ -23,9 +23,9 @@
     - { role: configure-networking }
 
   post_tasks:
-    - name: Quick pause before opening the browser
+    - name: Quick pause before opening Chrome
       pause:
-        seconds: 10
+        seconds: 15
     
     #Make Chrome your default browser :)
     - name: Browse to the returned external_ip in Google Chrome
