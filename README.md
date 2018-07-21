@@ -4,7 +4,7 @@ The following content was adapted from [Compute Video Demo](https://github.com/G
 
 Google Compute Variables
 --------------
-Relevant Google Compute variables are now limited the scope of a role that requires them. Because the authentication variables need to be globally available across roles, it makes sense to have them there.
+Relevant Google Compute variables are now limited the scope of a role that requires them. Because the authentication variables need to be globally available across roles, it makes sense to have them in group_vars/all.
 ```
 # Google Compute Engine required authentication global variables
 project_id: <project_id>
@@ -24,7 +24,7 @@ export ANSIBLE_HOSTS=ansible_hosts
 export ANSIBLE_HOST_KEY_CHECKING=False
 ```
 
-These are now taken care by setting their appropriate equivalents in ansible.cfg
+These are now handled by setting their appropriate ansible.cfg equivalents
 ```
 [defaults]
 inventory=hosts
@@ -39,7 +39,7 @@ The following playbook kicks off the demo:
 ansible-playbook google-next-demo.yml
 ```
 
-And this  playbook cleans it up:
+And this playbook cleans up all provisioned resources:
 ```
 ansible-playbook cleanup.yml
 ```
