@@ -23,6 +23,10 @@
     - { role: configure-networking }
 
   post_tasks:
+    - name: Quick pause before opening the browser
+      pause:
+        seconds: 7
+    
     #Make Chrome your default browser :)
     - name: Browse to the returned external_ip in Google Chrome
       command: open 'http://{{ loadbalancer_config.external_ip }}'
