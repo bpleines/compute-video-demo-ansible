@@ -24,7 +24,7 @@ export ANSIBLE_HOSTS=ansible_hosts
 export ANSIBLE_HOST_KEY_CHECKING=False
 ```
 
-These are now handled by setting their appropriate ansible.cfg equivalents:
+These are now handled by setting their preconfigured ansible.cfg equivalents:
 ```
 [defaults]
 inventory=hosts
